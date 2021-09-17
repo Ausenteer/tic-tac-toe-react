@@ -4,6 +4,7 @@ import gameSelector from './store/selectors/gameSelector';
 import GlobalStyle from './assets/GlobalStyle';
 import './App.css';
 import Container from './assets/Container';
+import AppHeader from './components/AppHeader';
 import BoardWrapper from './assets/BoardWrapper';
 import Square from './assets/Square';
 import Button from './assets/Button';
@@ -25,6 +26,7 @@ const App:React.FC = () => {
   return (
     <>
       <GlobalStyle />
+      <AppHeader />
       <Container>
         <p>
           Кто ходит:
