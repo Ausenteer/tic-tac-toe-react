@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { secondaryColor } from './variables';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -18,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     overflow-y: scroll;
     margin: 0;
+    background-color: ${secondaryColor};
   }
 
   a {
