@@ -1,11 +1,16 @@
 import styled from 'styled-components/macro';
 
 const Square = styled.div`
-  width: 33%;
-  height: 100px;
-  border: 2px solid tomato;
-  padding: 20px;
+  border: 4px solid #ffc72c;
   cursor: pointer;
+  background-color: #fff;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
 `;
 
 export default Square;

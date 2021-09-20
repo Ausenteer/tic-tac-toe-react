@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 const Header = styled.header`
-  background-color: #66CDAA;
+  background-color: #ffc72c;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
