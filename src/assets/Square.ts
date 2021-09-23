@@ -9,7 +9,7 @@ const Square = styled.div`
   cursor: pointer;
   background-color: #fff;
   border-radius: 2px;
-
+  outline: none;
 `;
 
 export default Square;
