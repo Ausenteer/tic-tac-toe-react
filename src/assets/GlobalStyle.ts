@@ -30,6 +30,12 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
+    outline: none !important;
+  }
+
+  button:active, button:focus, button:active:focus, button:visited {
+    outline: none !important;
+    box-shadow: none !important;
   }
 `;
 
