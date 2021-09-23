@@ -4,7 +4,6 @@ import { mainColor } from './variables';
 const BoardWrapper = styled.div`
   width: 450px;
   height: 450px;
-  margin: 0 auto;
   background-color: ${mainColor};
   color: #000;
   border: 6px solid ${mainColor};
