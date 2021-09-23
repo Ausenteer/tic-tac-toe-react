@@ -3,7 +3,8 @@ import { useAppDispatch, useAppSelector } from '../hooks/useReduxStore';
 import gameSelector from '../store/selectors/gameSelector';
 import BoardWrapper from '../assets/BoardWrapper';
 import Square from '../assets/Square';
-import { setSymbol } from '../store/gameSlice';
+import { setSymbol, startNewGame } from '../store/gameSlice';
+import Button from '../assets/Button';
 
 const BoardGame:React.FC = () => {
   const { board, winner } = useAppSelector(gameSelector);
@@ -18,9 +19,12 @@ const BoardGame:React.FC = () => {
     <Square tabIndex={0} role="button" onClick={() => handleSetSymbol(rowIndex, colIndex)}>{value}</Square>
   )));
   return (
-    <BoardWrapper>
-      {boardGame}
-    </BoardWrapper>
+    <>
+      <BoardWrapper>
+        {boardGame}
+      </BoardWrapper>
+      <Button role="button" onClick={() => dispatch(startNewGame())}>НОВАЯ ИГРА</Button>
+    </>
   );
 };
 

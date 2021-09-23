@@ -20,22 +20,16 @@ const GlobalStyle = createGlobalStyle`
     overflow-y: scroll;
     margin: 0;
     background-color: ${secondaryColor};
-  }
+}
 
   a {
     text-decoration: none;
   }
   button {
     border-width: 0;
-  }
-
-  table {
-    display: table;
-    border-collapse: collapse;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 2px;
-    border-color: grey;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
   }
 `;
 

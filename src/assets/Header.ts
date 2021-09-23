@@ -8,6 +8,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-bottom: 60px;
 `;
 
 export default Header;
