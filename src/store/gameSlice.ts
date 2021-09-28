@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import checkWin from './helpers';
+import checkWin from './helpers/checkWin';
+import counterWins from './helpers/counterWins';
 
 interface Cell {
   row: number,
@@ -7,18 +8,25 @@ interface Cell {
 }
 type GameState = {
   board: string[][],
-  test: string,
   currentMove: 'X' | 'O',
   winner: string,
   countStep: number,
+  numberWins: {
+    X: number,
+    O: number,
+  }
 };
 const initialState: GameState = {
   board: Array(3).fill(Array(3).fill('')),
-  test: 'test',
   currentMove: 'X',
   winner: '',
   countStep: 0,
+  numberWins: {
+    X: 0,
+    O: 0,
+  },
 };
+
 const gameSlice = createSlice({
   name: 'game',
   initialState,
@@ -32,12 +40,18 @@ const gameSlice = createSlice({
         const winSymbol = checkWin(state.board, state.currentMove);
         if (winSymbol) {
           state.winner = winSymbol;
+          state.numberWins = counterWins(winSymbol, state.numberWins);
         } else {
           state.currentMove = nextMove;
         }
       }
     },
-    startNewGame: () => ({ ...initialState }),
+    startNewGame: (state) => {
+      state.board = initialState.board;
+      state.currentMove = initialState.currentMove;
+      state.winner = initialState.winner;
+      state.countStep = initialState.countStep;
+    },
   },
 });
 
