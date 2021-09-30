@@ -8,7 +8,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: center;
   color: #fff;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   background: linear-gradient(
           120deg, ${colorPlayerX}, ${colorPlayerO});
 `;

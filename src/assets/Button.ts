@@ -6,6 +6,7 @@ const Button = styled.button`
   padding: 20px;
   border-radius: 10px;
   font-size: 30px;
+  color: black;
   
   @media (max-width: 400px) {
     width: 350px;
