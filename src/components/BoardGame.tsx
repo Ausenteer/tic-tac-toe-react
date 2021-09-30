@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Confetti from 'react-confetti';
 import { useAppDispatch, useAppSelector } from '../hooks/useReduxStore';
 import gameSelector from '../store/selectors/gameSelector';
 import BoardWrapper from '../assets/BoardWrapper';
@@ -34,6 +35,12 @@ const BoardGame:React.FC = () => {
     </Square>
   )));
   const text = `Победили ${winner}`;
+  const confetti = winner && (
+  <Confetti
+    width={window.innerWidth}
+    height={window.innerHeight}
+  />
+  );
   return (
     <>
       <BoardWrapper>
@@ -43,6 +50,7 @@ const BoardGame:React.FC = () => {
       <Modal active={activeModal} setActive={setActiveModal}>
         <p>{text}</p>
       </Modal>
+      {confetti}
     </>
   );
 };
