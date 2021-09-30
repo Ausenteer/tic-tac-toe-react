@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
+import { colorPlayerX, colorPlayerO } from './variables';
 
 const Header = styled.header`
-  background-color: #ffc72c;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -9,6 +9,8 @@ const Header = styled.header`
   justify-content: center;
   color: #fff;
   margin-bottom: 60px;
+  background: linear-gradient(
+          120deg, ${colorPlayerX}, ${colorPlayerO});
 `;
 
 export default Header;

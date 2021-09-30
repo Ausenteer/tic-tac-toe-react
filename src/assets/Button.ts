@@ -1,12 +1,15 @@
 import styled from 'styled-components/macro';
-import { mainColor } from './variables';
 
 const Button = styled.button`
   width: 450px;
-  margin-top: 15px;
-  background-color: ${mainColor};
+  background-color: darkgrey;
   padding: 20px;
   border-radius: 10px;
+  font-size: 30px;
+  
+  @media (max-width: 400px) {
+    width: 350px;
+  }
 `;
 
 export default Button;
