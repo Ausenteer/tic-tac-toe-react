@@ -1,21 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import checkWin from './helpers/checkWin';
-import counterWins from './helpers/counterWins';
+import { Cell, TPlayers, GameState } from '../types/types';
 
-interface Cell {
-  row: number,
-  col: number,
-}
-type GameState = {
-  board: string[][],
-  currentMove: 'X' | 'O',
-  winner: string,
-  countStep: number,
-  numberWins: {
-    X: number,
-    O: number,
-  }
-};
 const initialState: GameState = {
   board: Array(3).fill(Array(3).fill('')),
   currentMove: 'X',
@@ -34,15 +20,21 @@ const gameSlice = createSlice({
     setSymbol: (state, action: PayloadAction<Cell>) => {
       const { row, col } = action.payload;
       state.countStep += 1;
+      const countSquare = state.board.length ** 2;
       if (state.board[row][col] === '') {
         const nextMove = state.currentMove === 'X' ? 'O' : 'X';
         state.board[row][col] = state.currentMove;
-        const winSymbol = checkWin(state.board, state.currentMove);
+        const winSymbol: TPlayers | undefined = checkWin(state.board, state.currentMove);
         if (winSymbol) {
           state.winner = winSymbol;
-          state.numberWins = counterWins(winSymbol, state.numberWins);
+          state.numberWins[winSymbol] += 1;
         } else {
           state.currentMove = nextMove;
+        }
+        if (state.countStep === countSquare && !state.winner) {
+          state.winner = 'noWinner';
+          state.numberWins.X += 1;
+          state.numberWins.O += 1;
         }
       }
     },

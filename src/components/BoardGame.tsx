@@ -1,29 +1,37 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/useReduxStore';
 import gameSelector from '../store/selectors/gameSelector';
 import BoardWrapper from '../assets/BoardWrapper';
-import Square from '../assets/Square';
 import { setSymbol, startNewGame } from '../store/gameSlice';
-import Button from '../assets/Button';
+import ResetButton from '../assets/ResetButton';
+import BoardItem from './BoardItem';
+import { TPlayers } from '../types/types';
 
 const BoardGame:React.FC = () => {
   const { board, winner } = useAppSelector(gameSelector);
   const dispatch = useAppDispatch();
-  const handleSetSymbol = (rowId: number, index: number) => {
+  const handleSetSymbol = useCallback((row: number, col: number) => {
     if (!winner) {
-      dispatch(setSymbol({ row: rowId, col: index }));
+      dispatch(setSymbol({ row, col }));
     }
-  };
+  }, [winner]);
   const boardGame = board.map((row, rowIndex) => row.map((value, colIndex) => (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <Square tabIndex={0} role="button" onClick={() => handleSetSymbol(rowIndex, colIndex)}>{value}</Square>
+    <BoardItem
+      onClick={handleSetSymbol}
+      value={value as TPlayers}
+      row={rowIndex}
+      col={colIndex}
+    />
   )));
+  const handleResetClick = () => {
+    dispatch(startNewGame());
+  };
   return (
     <>
       <BoardWrapper>
         {boardGame}
       </BoardWrapper>
-      <Button role="button" onClick={() => dispatch(startNewGame())}>НОВАЯ ИГРА</Button>
+      <ResetButton role="button" onClick={handleResetClick}>НОВАЯ ИГРА</ResetButton>
     </>
   );
 };

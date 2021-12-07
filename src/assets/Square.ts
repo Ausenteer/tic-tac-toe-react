@@ -1,15 +1,16 @@
 import styled from 'styled-components/macro';
+import { TPlayers } from '../types/types';
+import setColor from '../utils/setColor';
 
-const Square = styled.div`
+const Square = styled.div<{ player: TPlayers | '' }>`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 2px;
-  border: 4px solid #ffc72c;
   cursor: pointer;
   background-color: #fff;
-  border-radius: 2px;
-
+  color: ${(props) => setColor(props.player)};
+  border-radius: 10px;
 `;
 
 export default Square;

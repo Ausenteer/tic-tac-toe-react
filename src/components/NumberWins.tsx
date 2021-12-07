@@ -9,16 +9,16 @@ const NumberWins:React.FC = () => {
   return (
     <NumberWinsWrapper>
       <p>
-        Побед у крестиков:
+        X:
       </p>
       <p>
-        {numberWins?.X}
+        {numberWins.X}
       </p>
       <p>
-        Побед у ноликов:
+        O:
       </p>
       <p>
-        {numberWins?.O}
+        {numberWins.O}
       </p>
     </NumberWinsWrapper>
   );

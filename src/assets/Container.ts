@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
-  font-size: 30px;
   font-weight: 700;
   padding-right: 8px;
   padding-left: 8px;
@@ -11,6 +10,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 15px;
 `;
 
 export default Container;
