@@ -6,6 +6,7 @@ import AppHeader from './components/AppHeader';
 import NumberWins from './components/NumberWins';
 import BoardGame from './components/BoardGame';
 import InfoGame from './components/InfoGame';
+import ModalWinner from './components/ModalWinner';
 
 const App:React.FC = () => (
   <>
@@ -15,6 +16,7 @@ const App:React.FC = () => (
       <NumberWins />
       <InfoGame />
       <BoardGame />
+      <ModalWinner />
     </Container>
   </>
 );

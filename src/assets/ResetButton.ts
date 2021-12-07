@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-const Button = styled.button`
+const ResetButton = styled.button`
   width: 450px;
   background-color: darkgrey;
   padding: 20px;
@@ -13,4 +13,4 @@ const Button = styled.button`
   }
 `;
 
-export default Button;
+export default ResetButton;

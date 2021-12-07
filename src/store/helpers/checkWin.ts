@@ -1,5 +1,24 @@
 import { TPlayers } from '../../types/types';
 
+export const checkWin2 = (r: number, c: number, size: number) => {
+  const row: number[] = [0, 0, 0];
+  const column: number[] = [0, 0, 0];
+  const diag: number[] = [0, 0, 0];
+  const antiDiag: number[] = [0, 0, 0];
+
+  // eslint-disable-next-line func-names
+  return function () {
+    // eslint-disable-next-line operator-assignment
+    row[r] = row[r] + 1;
+    column[c] += column[c];
+    if (r === c) diag[r] += diag[r];
+    if (r + c === size) antiDiag[r] += antiDiag[r];
+    console.log(row, r);
+    return row[r] === size || column[c] === size
+        || diag[r] === size || antiDiag[r] === size;
+  };
+};
+
 const checkLine = (array: string[], symbol: TPlayers, size: number): TPlayers | undefined => {
   let winner;
   const filteredArray = array.filter((item) => item === symbol);

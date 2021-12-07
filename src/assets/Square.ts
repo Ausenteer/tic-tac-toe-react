@@ -1,11 +1,7 @@
 import styled from 'styled-components/macro';
 import { TPlayers } from '../types/types';
-import { colorPlayerX, colorPlayerO } from './variables';
+import setColor from '../utils/setColor';
 
-const setColor = (player: TPlayers | '') => {
-  if (!player) return '#fff';
-  return player === 'X' ? colorPlayerX : colorPlayerO;
-};
 const Square = styled.div<{ player: TPlayers | '' }>`
   display: flex;
   justify-content: center;

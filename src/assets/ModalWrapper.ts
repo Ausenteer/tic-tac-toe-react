@@ -21,6 +21,13 @@ const ModalWrapper = styled.div<{ active: boolean }>`
     background-color: #fff;
     transform: ${(props) => (props.active ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
+    font-size: 22px;
+    
+    p {
+      font-weight: 600;
+      text-align: center;
+      margin: 15px;
+    }
   }
 `;
 

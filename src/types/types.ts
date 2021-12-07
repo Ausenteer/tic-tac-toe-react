@@ -4,11 +4,11 @@ export interface Cell {
 }
 
 export type TPlayers = 'X' | 'O';
-
+type BoardPlayers = TPlayers | '';
 export type GameState = {
-  board: string[][],
+  board: BoardPlayers[][],
   currentMove: TPlayers,
-  winner: TPlayers | 'noWinner' | '',
+  winner: BoardPlayers | 'noWinner',
   countStep: number,
   numberWins: Record<TPlayers, number>
 };
